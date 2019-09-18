@@ -73,7 +73,7 @@ lane_image = np.copy(image)
 canny_image = canny(lane_image)
 cropped_image = region_of_interest(canny_image)
 
-# here is the magic, the following line makes a Hough Space of the points and votes for every intersection, decides for the lines.
+#here is the magic, the following line makes a Hough Space of the points and votes for every intersection, decides for the lines.
 lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineLength=40, maxLineGap=5)
 averaged_lines = average_slope_intercept(image, lines)
 line_image = display_lines(lane_image, averaged_lines)
